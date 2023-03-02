@@ -50,3 +50,7 @@ h6 {
   flex-direction: column;
   min-height: 100vh;
 }
+
+.elem { background-image: url("/images/menu-item.png"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)); background-blend-mode: overlay; height: 170px; background-repeat: no-repeat; border-radius: 15px; }
+
+.item-header { background-image: url("/images/menu-title.png"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)); background-blend-mode: overlay; height: 109px; background-repeat: no-repeat; background-size: contain; }

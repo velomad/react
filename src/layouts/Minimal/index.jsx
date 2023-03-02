@@ -3,11 +3,8 @@ import { Outlet } from "react-router-dom";
 
 const Minimal = () => {
   return (
-    <div>
-      <div>Minimal</div>
-      <div id="detail">
-        <Outlet />
-      </div>
+    <div className="h-screen">
+      <Outlet />
     </div>
   );
 };
