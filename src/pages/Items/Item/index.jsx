@@ -10,8 +10,6 @@ const Item = ({ item }) => {
     decreaseCartQuantity,
   } = useCart();
 
-  console.log(cartItems);
-
   const quantity = getItemQuantity(item.id);
 
   return (
@@ -48,7 +46,7 @@ const Item = ({ item }) => {
               {quantity === 0 ? (
                 <Button
                   as="addToCart"
-                  onClick={() => increaseCartQuantity(item.id)}
+                  onClick={() => increaseCartQuantity(item)}
                 >
                   <div>
                     Add
@@ -58,7 +56,7 @@ const Item = ({ item }) => {
               ) : (
                 <Button as="addToCart">
                   <div className="flex justify-between">
-                    <div onClick={() => decreaseCartQuantity(item.id)}>
+                    <div onClick={() => decreaseCartQuantity(item)}>
                       <svg
                         fill="none"
                         viewBox="0 0 24 24"
@@ -74,7 +72,7 @@ const Item = ({ item }) => {
                       </svg>
                     </div>
                     <div>{quantity}</div>
-                    <div onClick={() => increaseCartQuantity(item.id)}>
+                    <div onClick={() => increaseCartQuantity(item)}>
                       <svg
                         fill="none"
                         viewBox="0 0 24 24"

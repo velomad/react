@@ -25,10 +25,10 @@ const CartProvider = ({ children }) => {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
 
-  function increaseCartQuantity(id) {
+  function increaseCartQuantity({ id, ...rest }) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
-        return [...currItems, { id, quantity: 1 }];
+        return [...currItems, { id, ...rest, quantity: 1 }];
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
@@ -41,7 +41,7 @@ const CartProvider = ({ children }) => {
     });
   }
 
-  function decreaseCartQuantity(id) {
+  function decreaseCartQuantity({ id }) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id)?.quantity === 1) {
         return currItems.filter((item) => item.id !== id);
@@ -62,6 +62,12 @@ const CartProvider = ({ children }) => {
     });
   }
 
+  function cartTotal() {
+    return cartItems.reduce((acc, curr) => {
+      return (acc += curr.quantity * curr.price);
+    }, 0);
+  }
+
   useEffect(() => {
     if (cartItems.length > 0) {
       openCart();
@@ -79,6 +85,7 @@ const CartProvider = ({ children }) => {
         closeCart,
         cartItems,
         cartQuantity,
+        cartTotal,
       }}
     >
       {children}

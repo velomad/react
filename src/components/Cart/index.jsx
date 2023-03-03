@@ -1,17 +1,24 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../context/cart-context";
-const Cart = ({ setCartOpen }) => {
+const Cart = () => {
   const { pathname } = useLocation();
-  const { cartItems } = useCart();
+  const { cartTotal, cartQuantity } = useCart();
 
   const isCartPage = pathname == "/app/order";
 
   return (
     <div className="p-4 bg-primary flex justify-between items-center text-white">
       <div>
-        <div className="text-xs">2 items {!isCartPage && "added"} </div>
-        <div className="font-semibold">$112</div>
+        <div className="text-xs">
+          {cartQuantity} items {!isCartPage && "added"}{" "}
+        </div>
+        <div className="font-semibold">
+          <div className="flex space-x-1">
+            <div>&#x20b9;</div>
+            <div>{cartTotal()}</div>
+          </div>
+        </div>
       </div>
 
       <Link to={!isCartPage && "/app/order"}>
