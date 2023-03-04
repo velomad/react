@@ -11,17 +11,17 @@ const Login = () => {
         <p className="text-4xl py-8 font-bold">Hola Peeps!</p>
 
         <img
-          className="mx-auto mt-10 w-full"
-          src="images/Group.svg"
+          className="mx-auto  w-full"
+          src="images/home.png"
           alt="Cheers"
         />
-        <p className="text-4xl mt-16 font-semibold italic">
+        <p className="text-4xl mt-12 font-semibold italic">
           Explore our <br /> offerings, <br /> we hope you’ll <br /> love it..!
         </p>
       </div>
 
-      <div className="">
-        <Link to={'/app'} >
+      <div >
+        <Link to={'/ablaze'} >
           <button className="flex space-x-2 mx-auto bg-white py-4 px-6 rounded-full">
             <span>
               <img src="/images/Google.svg" alt="Google icon" />

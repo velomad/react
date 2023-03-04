@@ -1,9 +1,13 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Item = ({ category }) => {
+const Item = ({ category, index }) => {
   return (
-    <div>
+    <motion.div
+      initial={{ y: -10, opacity: 0 }}
+      animate={{ y: 10, transition: { delay: `0.${index}`, }, opacity : 1 }}
+    >
       <Link
         to={"/app/menu/" + category.name}
         state={{ items: category["menu-items"] }}
@@ -14,7 +18,7 @@ const Item = ({ category }) => {
           </p>
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

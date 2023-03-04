@@ -4,9 +4,15 @@ import { categorys } from "../../../../data.json";
 
 const ItemList = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       {categorys.map((category, index) => {
-        return <Item category={category} key={category.id.toString()} />;
+        return (
+          <Item
+            index={index}
+            category={category}
+            key={category.id.toString()}
+          />
+        );
       })}
     </div>
   );

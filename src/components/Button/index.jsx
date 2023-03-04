@@ -1,12 +1,12 @@
 import React from "react";
 
-const Button = ({ children, as, onClick }) => {
+const Button = ({ children, as, onClick, background }) => {
   const Btn = ({ classes }) => (
     <button
       onClick={onClick}
-      className={
-        classes + " focus:outline-none border border-2 border-secondary"
-      }
+      className={`${classes ? classes : ""} focus:outline-none ${
+        background ? background : ""
+      }`}
     >
       {children}
     </button>
@@ -23,7 +23,7 @@ const Button = ({ children, as, onClick }) => {
       );
 
     default:
-      return <button>{children}</button>;
+      return <Btn />;
   }
 };
 

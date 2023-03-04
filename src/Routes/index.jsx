@@ -10,6 +10,7 @@ import Minimal from "../layouts/Minimal";
 import Menu from "../pages/Menu";
 import Items from "../pages/Items";
 import Order from "../pages/Order";
+import Welcome from "../pages/Welcome";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,8 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "scan",
-        element: <Scan />,
+        path: "ablaze",
+        element: <Welcome />,
       },
     ],
   },

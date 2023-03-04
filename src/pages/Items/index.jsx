@@ -1,14 +1,13 @@
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import Item from "./Item";
 import MenuOptionsList from "./MenuOptionsList";
-
 const Items = () => {
   const [isMenuOptionsOpen, setMenuOptions] = useState(false);
 
   const { state } = useLocation();
-
 
   return (
     <div>
@@ -18,7 +17,9 @@ const Items = () => {
       />
 
       {isMenuOptionsOpen ? (
-        <MenuOptionsList />
+        <motion.div>
+          <MenuOptionsList />
+        </motion.div>
       ) : (
         <div className="space-y-4 p-4">
           {state.items.map((item) => {
